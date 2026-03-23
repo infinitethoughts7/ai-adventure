@@ -266,13 +266,19 @@ Now your entire graph (C1 → C2 → C3 → C4) with all snapshots is on GitHub 
 
 ## What is GitHub?
 
-| Git | GitHub |
-|-----|--------|
-| A tool on your **computer** | A **website** that hosts Git repos |
-| Works **offline** | Needs **internet** |
-| Tracks changes **locally** | Stores your code **online** |
-| You use it from the **terminal** | You use it from a **browser** |
-| Created by Linus Torvalds (2005) | Created by Tom Preston-Werner (2008) |
+| Feature            | Git                          | GitHub                              |
+|-------------------|------------------------------|-------------------------------------|
+| Version Control   | Tracks changes in code       | Uses Git for version control        |
+| Storage           | Local (your computer)        | Cloud (online storage)              |
+| Internet          | Not required                 | Required                            |
+| Collaboration     | Limited                      | Strong (PRs, Issues, Reviews)       |
+| Interface         | Command Line (CLI)           | Web UI + Desktop apps               |
+| Branching         | Yes                          | Yes (with visual support)           |
+| Backup            | No automatic backup          | Acts as backup                      |
+| Sharing           | Manual                       | Easy via links                      |
+| Access Control    | Basic                        | Advanced (public/private repos)     |
+| Code Review       | Not available                | Pull Requests for review            |
+| Project Management| Not available                | Issues, Projects, Discussions       |
 
 **Simple analogy:**
 
@@ -389,6 +395,10 @@ git clone https://github.com/username/repo.git
 # OR create a new repo from scratch
 git init
 ```
+### Connect to GitHub (ONLY for new repo)
+```bash
+git remote add origin https://github.com/username/repo.git
+```
 
 ### The Daily Workflow (You'll use these the most!)
 
@@ -498,6 +508,35 @@ git checkout -- filename.py
 ```bash
 git diff
 ```
+
+## ⚠️ Important Note (While Pushing to GitHub)
+
+👉 GitHub no longer accepts your account password for `git push`
+
+👉 Instead, you must use a **Personal Access Token (PAT)**
+
+### What happens?
+
+When Git asks:
+Username: your_username  
+Password: ❌ (don’t enter your GitHub password)
+
+👉 Enter your **Personal Access Token** instead
+
+---
+
+### 🧠 Simple Tip:
+👉 Token = Password replacement for GitHub
+
+---
+
+### 🔗 How to generate a token:
+https://github.com/settings/tokens
+
+👉 Click:
+- "Generate new token"
+- Select basic permissions (repo)
+- Copy and use it as password
 
 ---
 
